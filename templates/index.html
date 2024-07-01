@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dental Health Staffing</title>
+    <style>
+        body {
+            font-family: 'Calibri Light', sans-serif;
+            font-size: 16px;
+            background: linear-gradient(to right, #d0e7f0, #f4f4f9);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .banner {
+            width: 100%;
+            background-color: #80c6e6;
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: 'Times New Roman', serif;
+        }
+        .button-container {
+            margin-right: 10px;
+        }
+        .button-container a {
+            text-decoration: none;
+            color: #007bff;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            margin-right: 10px; /* Adjusted margin for spacing between buttons */
+        }
+        .button-container a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Dental Health Staffing</h1>
+        <div class="button-container">
+            <a href="{{ url_for('login') }}" style="color: #007bff;">Log In</a>
+            <a href="{{ url_for('create_account') }}" style="color: #007bff;">Create Account</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: 'Avenir', sans-serif;
+            font-size: 15px;
+            background: linear-gradient(to right, #d0e7f0, #f4f4f9);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-top: 10px;
+            font-size: 1.1em;
+            text-align: left;
+            width: 100%;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+            margin-top: 5px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        span.error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Account</h1>
+        <form action="{{ url_for('create_account') }}" method="post">
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" name="user_name" value="{{ request.form['user_name'] if request.method == 'POST' else '' }}">
+            {% if errors.user_name %}
+                <span class="error">{{ errors.user_name }}</span>
+            {% endif %}
+
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ request.form['first_name'] if request.method == 'POST' else '' }}">
+            {% if errors.first_name %}
+                <span class="error">{{ errors.first_name }}</span>
+            {% endif %}
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" value="{{ request.form['last_name'] if request.method == 'POST' else '' }}">
+            {% if errors.last_name %}
+                <span class="error">{{ errors.last_name }}</span>
+            {% endif %}
+
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" value="{{ request.form['phone_number'] if request.method == 'POST' else '' }}">
+            {% if errors.phone_number %}
+                <span class="error">{{ errors.phone_number }}</span>
+            {% endif %}
+
+            <label for="user_email">Email Address:</label>
+            <input type="text" id="user_email" name="user_email" value="{{ request.form['user_email'] if request.method == 'POST' else '' }}">
+            {% if errors.user_email %}
+                <span class="error">{{ errors.user_email }}</span>
+            {% endif %}
+
+            <label for="user_dob">Date of Birth (YYYY-MM-DD):</label>
+            <input type="text" id="user_dob" name="user_dob" value="{{ request.form['user_dob'] if request.method == 'POST' else '' }}">
+            {% if errors.user_dob %}
+                <span class="error">{{ errors.user_dob }}</span>
+            {% endif %}
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
